@@ -1,2 +1,5 @@
 black
 pylint
+django
+mysqlclient
+uwsgi
