@@ -1,0 +1,6 @@
+black
+pylint
+django
+pymysql
+pandas
+uwsgi
