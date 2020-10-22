@@ -1,5 +1,6 @@
 black
 pylint
 django
-mysqlclient
+pymysql
+pandas
 uwsgi
