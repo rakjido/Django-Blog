@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{% url 'board_post' %}" class="btn btn-primary">New</a>
+    {% for board in board_list %}
+        <div class="board">
+            <p>published: {{ board.create_date }}</p>
+            <h1><a href="{% url 'board_get' pk=board.idx %}">{{ board.title }}</a></h1>
+            <p>{{ board.content|linebreaksbr }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -13,4 +13,8 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "python.linting.lintOnSave": true,
+    "files.associations": {
+        "**/templates/*.html": "django-html"
+    },
+    "emmet.includeLanguages": {"django-html": "html"},
 }

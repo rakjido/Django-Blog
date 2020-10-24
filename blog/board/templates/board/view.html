@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="btn-group">
+        <a href="{% url 'board_put' pk=post.idx %}" class="btn btn-primary">Update</a>
+        <a href="{% url 'board_delete' pk=post.idx %}" class="btn btn-primary">Delete</a>
+        <a href="{% url 'board_list' %}" class="btn btn-primary">List</a>
+    </div>
+    <hr>
+    <div class="post">
+    	<div class="form-group">
+            <input type="input"
+                class="form-control" id="title" name="title" value="{{ post.title }}" disabled >
+		</div>	
+        <div class="form-group">
+			<textarea id="content" class="form-control" name="content"
+					rows="15" disabled>{{ post.content }}</textarea>
+		</div>
+		<div class="form-group">
+            <input type="hidden"
+                class="form-control" id="author" name="author" value="admin">
+		</div>	
+        {% if post.create_date %}
+            <div class="date">
+                {{ post.create_date }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
