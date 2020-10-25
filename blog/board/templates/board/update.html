@@ -4,15 +4,15 @@
     <form method="POST" class="post-form">{% csrf_token %}
 		<div class="form-group">
             <input type="input"
-                class="form-control" id="title" name="title" placeholder="Title">
+                class="form-control" id="title" name="title" value="{{ post.title }}">
 		</div>	
         <div class="form-group">
 			<textarea id="content" class="form-control" name="content"
-					rows="15" placeholder="내 용"></textarea>
+					rows="15" placeholder="내 용">{{ post.content }}</textarea>
 		</div>
 		<div class="form-group">
             <input type="hidden"
-                class="form-control" id="author" name="author" value="admin">
+                class="form-control" id="author" name="author" value="{{ post.author.username}}">
 		</div>	
         <button type="submit" class="btn btn-primary">Save</button>
     </form>

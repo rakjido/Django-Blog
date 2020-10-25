@@ -51,13 +51,18 @@ def board_put(request, pk):
     Board Update
     """
     logger.info("board_put")
-    post = get_object_or_404(Board, idx=pk)
-    post.title = request.POST.get("title")
-    post.content = request.POST.get("content")
-    post.author = request.POST.get("author")
-    post.update_date = timezone.now()
-    post.save()
-    return redirect("/")
+    if request.method == "POST":
+        post = get_object_or_404(Board, idx=pk)
+        post.title = request.POST.get("title")
+        post.content = request.POST.get("content")
+        user = get_object_or_404(User, username=request.POST.get("author"))
+        post.author = user
+        post.update_date = timezone.now()
+        post.save()
+        return redirect("/")
+    else:
+        post = get_object_or_404(Board, idx=pk)
+        return render(request, "board/update.html", {"post": post})
 
 
 def board_delete(request, pk):
