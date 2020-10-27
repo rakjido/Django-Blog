@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -16,6 +17,9 @@ class Board(models.Model):
 
     class Meta:
         ordering = ("-create_date",)
+
+    def get_absolute_url(self):
+        return reverse("board_get", kwargs={"pk": self.idx})
 
     def __str__(self):
         return self.title
