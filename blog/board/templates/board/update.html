@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <div class="div-btn-left"></div>
     <form method="POST" class="post-form">{% csrf_token %}
 		<div class="form-group">
             <input type="input"
@@ -14,6 +15,6 @@
             <input type="hidden"
                 class="form-control" id="author" name="author" value="{{ post.author.username}}">
 		</div>	
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Update</button>
     </form>
 {% endblock %}

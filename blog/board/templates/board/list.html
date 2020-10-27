@@ -1,13 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{% url 'board_post' %}" class="btn btn-primary">New</a>
-    {% for board in board_list %}
-        <div class="board">
-            <p>published: {{ board.create_date }}</p>
-            <h1><a href="{% url 'board_get' pk=board.idx %}">{{ board.title }}</a></h1>
-            <p>{{ board.content|linebreaksbr }}</p>
-            <hr>
-        </div>
-    {% endfor %}
+    <div class="div-btn-left">
+        <a href="{% url 'board_post' %}" class="btn btn-primary">New</a>
+    </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Create Date</th>
+            </tr>
+            </thead>
+            {% for board in board_list %}
+                <tr>
+                    <td>{{ board.idx }}</td>
+                    <td>
+                        <a href={% url 'board_get' pk=board.idx %}>{{ board.title }}</a>
+                    </td>
+                    <td>{{ board.author.username }}</td>
+                    <td>{{ board.create_date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
 {% endblock %}
