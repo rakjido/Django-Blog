@@ -6,7 +6,6 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Board
 
@@ -19,16 +18,7 @@ def board_list(request):
     """
     logger.info("board_list")
     board_list = Board.objects.order_by("-create_date")
-    # 페이지당 표시 포스트 수
-    paginator = Paginator(board_list, 5)
-    page = request.GET.get("page")
-    try:
-        posts = paginator.page(page)
-    except PageNotAnInteger:
-        posts = paginator.page(1)
-    except EmptyPage:
-        posts = paginator.page(paginator.num_pages)
-    return render(request, "board/list.html", {"page": page, "board_list": posts})
+    return render(request, "board/list.html", {"board_list": board_list})
 
 
 def board_post(request):
