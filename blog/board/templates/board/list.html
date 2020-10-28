@@ -26,4 +26,64 @@
     </table>
 
 
+    <div class="div-pagination">
+
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <a class="page-link" href="?page={{ 1 }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+
+          {% if board_list.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ board_list.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">&#60;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&#60;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li> 
+          {% endif %}
+          {% for i in page_range %}
+              {% if board_list.number == i %}
+                  <li class="page-item active"><a class="page-link" href="#">{{ i }}<span class="sr-only">(current)</span></a></li>
+              {% else %}
+                  <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+          {% endfor %}
+          {% if board_list.has_next %}
+              <li class="page-item">
+              <a class="page-link" href="?page={{ board_list.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">	&#62;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          {% else %}
+              <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">	&#62;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          {% endif %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ board_list.paginator.num_pages }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+    </div>
+
+
 {% endblock %}
