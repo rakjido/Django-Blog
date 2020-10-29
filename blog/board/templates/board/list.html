@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if request.user.is_authenticated %}
     <div class="div-btn-left">
         <a href="{% url 'board_post' %}" class="btn btn-primary">New</a>
     </div>
+    {% endif %}
     <table class="table">
         <thead>
         <tr>

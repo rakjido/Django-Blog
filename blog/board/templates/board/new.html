@@ -13,7 +13,7 @@
 		</div>
 		<div class="form-group">
             <input type="hidden"
-                class="form-control" id="author" name="author" value="admin">
+                class="form-control" id="author" name="author" value="{{ request.user.username }}">
 		</div>	
         <button type="submit" class="btn btn-primary">Save</button>
     </form>

@@ -5,7 +5,9 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.utils import timezone
+from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Board
@@ -40,6 +42,7 @@ def board_list(request):
     return render(request, "board/list.html", {"board_list": posts, "page_range": page_range})
 
 
+@login_required(login_url="/account/login")
 def board_post(request):
     """
     Board Posting
@@ -64,30 +67,38 @@ def board_get(request, pk):
     return render(request, "board/view.html", {"post": post})
 
 
+@login_required(login_url="/account/login")
 def board_put(request, pk):
     """
     Board Update
     """
     logger.info("board_put")
+    post = get_object_or_404(Board, idx=pk)
+    if request.user != post.author:
+        messages.error(request, "You are not authorized")
+        return redirect("/{}".format(post.idx))
+
     if request.method == "POST":
-        post = get_object_or_404(Board, idx=pk)
         post.title = request.POST.get("title")
         post.content = request.POST.get("content")
-        user = get_object_or_404(User, username=request.POST.get("author"))
-        post.author = user
         post.update_date = timezone.now()
         post.save()
         return redirect("/")
     else:
-        post = get_object_or_404(Board, idx=pk)
+
         return render(request, "board/update.html", {"post": post})
 
 
+@login_required(login_url="/account/login")
 def board_delete(request, pk):
     """
     Board Delete
     """
     logger.info("board_delete")
     post = get_object_or_404(Board, idx=pk)
+    if request.user != post.author:
+        messages.error(request, "You are not authorized")
+        return redirect("/{}".format(post.idx))
+
     post.delete()
     return redirect("board_list")
