@@ -1,20 +1,13 @@
 {
-    "python.pythonPath": ".venv\\Scripts\\python.exe",
-    "git.ignoreLimitWarning": true,
-    "code-runner.executorMap": {
-        "python": "$pythonPath $fullFileName",
-    },
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length",
-        "100"
-    ],
-    "editor.formatOnSave": true,
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.lintOnSave": true,
-    "files.associations": {
-        "**/templates/*.html": "django-html"
-    },
-    "emmet.includeLanguages": {"django-html": "html"},
+  "python.pythonPath": ".venv/bin/python",
+  "git.ignoreLimitWarning": true,
+  "code-runner.executorMap": {
+    "python": "$pythonPath $fullFileName"
+  },
+  "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--line-length", "100"],
+  "editor.formatOnSave": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true
 }
