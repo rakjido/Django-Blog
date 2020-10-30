@@ -1,3 +1,5 @@
+import logging
+
 from django.http import request
 from django.shortcuts import render
 from django.shortcuts import redirect
@@ -6,6 +8,9 @@ from django.http import HttpResponse
 
 from .forms import LoginForm
 from .forms import SignUpForm
+
+
+logger = logging.getLogger(__name__)
 
 # def user_login(request):
 #     if request.method == "POST":
