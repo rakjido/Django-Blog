@@ -133,5 +133,9 @@ config_dev.py
 config_op.py
 test.py
 
+.vscode
 .vscode/
+.vscode/*
+.vscode/settings.json
+
 settings.json
