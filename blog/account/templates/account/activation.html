@@ -1,0 +1,10 @@
+
+{% autoescape off %}
+
+Welcome to Django Blog!
+
+Please verfiy your email
+    
+http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+
+{% endautoescape %}

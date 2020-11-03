@@ -1,44 +1,41 @@
+.div-box {
+  padding-top: 0px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
 
+.div-btn-left {
+  margin: 10px;
+  float: right;
+}
 
-    .div-box {
-        padding-top: 0px;
-        padding-left: 25%;
-        padding-right: 25%;
-    }
+.date {
+  float: right;
+  color: gray;
+}
 
-    .div-btn-left{
-        margin: 10px;
-        float: right;
-    }
+.board-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: black;
+}
 
-    .date {
-        float: right;
-        color: gray;
-    }
+.board-author {
+  color: #004d80;
+  padding: 5px;
+}
 
-    .board-title {
-        font-size: 24px;
-        font-weight: 700;
-        color: black;
-        
-    }
+.board-date {
+  color: #999999;
+  font-size: 12px;
+  padding: 5px;
+}
+.board-container {
+  border: 1px solid #f2f2f2;
+  padding: 20px;
+}
 
-    .board-author {
-        color: #004d80;
-        padding: 5px;
-    }
-
-    .board-date {
-        color: #999999;
-        font-size: 12px;
-        padding: 5px;
-    }
-    .board-container {
-        border: 1px solid #f2f2f2;
-        padding: 20px;
-    }
-
-    .div-pagination {
-        margin: 15px;
-        padding: 15px;
-    }
+.div-pagination {
+  margin: 15px;
+  padding: 15px;
+}
