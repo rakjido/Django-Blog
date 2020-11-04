@@ -22,7 +22,6 @@
     * Django
     * MySQL
     * Git & Github, Git Flow
-    * Ajax
     * uWSGI
     * Docker
     * Jenkins CI/CD
@@ -30,5 +29,3 @@
 ### 선택 조건
 
     * Setting은 config.py에서 개발, 운용을 구분하여 설정
-    * View는 class based view로 한다.
-    * 배포시 static파일 압축
