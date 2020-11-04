@@ -141,3 +141,5 @@ test.py
 !.vscode/extensions.json
 
 settings.json
+
+log/*

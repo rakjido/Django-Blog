@@ -12,7 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Board
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('blog')
 
 
 def board_list(request):

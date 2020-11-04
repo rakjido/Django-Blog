@@ -18,7 +18,7 @@ from .forms import SignUpForm
 
 from .activation import account_activation_token
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('blog')
 
 # def user_login(request):
 #     if request.method == "POST":
@@ -40,6 +40,10 @@ logger = logging.getLogger(__name__)
 
 
 def sign_up(request):
+    """
+    Sign up
+    """
+    logger.info("sign_up")
     User = get_user_model()
     if request.method == "POST":
         signup_form = SignUpForm(request.POST)
@@ -77,6 +81,10 @@ def sign_up(request):
 
 
 def activate(request, uidb64, token):
+    """
+    Email Activation
+    """
+    logger.info("activate")
     User = get_user_model()
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))

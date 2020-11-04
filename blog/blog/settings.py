@@ -144,15 +144,19 @@ LOGGING = {
     "formatters": {
         "detail": {
             "format": "[%(asctime)s] %(levelname)s %(funcName)s() %(pathname)s [%(name)s:%(lineno)s] %(message)s",
-            "datefmt": "%Y-%M-%d %H:%M:%S",
+            "datefmt": "%Y-%m-%d %H:%M:%S",
         },
         "simple": {"format": "%(levelname)s %(message)s"},
     },
     "handlers": {
         "file": {
             "level": "INFO",
-            "class": "logging.FileHandler",
-            "filename": os.path.join(BASE_DIR, "blog/log/logfile"),
+            #"class": "logging.FileHandler",
+            "class" : "logging.handlers.TimedRotatingFileHandler",
+            "filename": os.path.join(BASE_DIR, "blog/log/django.log"),
+            'when': 'D',                # this specifies the interval (logging.handlers.TimedRotatingFileHandler)
+            'interval': 1,              # defaults to 1, only necessary for other values (logging.handlers.TimedRotatingFileHandler)
+            'backupCount': 100,         # how many backup file to keep, 100 days (logging.handlers.TimedRotatingFileHandler)
             "formatter": "detail",
         },
         "console": {
@@ -163,8 +167,8 @@ LOGGING = {
     },
     "loggers": {
         "blog": {
-            # "handlers": ["file"],
-            "handlers": ["console"],
+            "handlers": ["file"],
+            # "handlers": ["console"],
             "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
         }
     },
