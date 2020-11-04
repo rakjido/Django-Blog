@@ -1,0 +1,9 @@
+
+{% if post %}
+    <meta name="description" content="{{ post.title }}">
+    <meta name="author" content="{{ post.author.username }}">
+{% else %}
+    <meta property="og:title" content="django-blog">
+    <meta name="description" content="your blog">
+    <meta name="author" content="django">
+{% endif %}

@@ -17,8 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 
+from django.contrib.sitemaps.views import sitemap
+from blog.sitemaps import BoardSitemap
+
+sitemaps = {"posts": BoardSitemap}
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("board.urls")),
     path("account/", include("account.urls")),
+    path(
+        "sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"
+    ),
 ]
