@@ -22,7 +22,6 @@
     * Django
     * MySQL
     * Git & Github, Git Flow
-    * Ajax
     * uWSGI
     * Docker
     * Jenkins CI/CD
