@@ -23,6 +23,7 @@ class BoardTestViews(TestCase):
         self.post_url = reverse("board_post")
         self.get_url = reverse("board_get", args=[1])
         self.put_url = reverse("board_put", args=[1])
+        self.delete_url = reverse("board_delete", args=[1])
         self.user = User.objects.create_user("testuser", "testuser@gmail.com", "1234")
         number_of_post = 10
         for post_id in range(number_of_post):
@@ -73,9 +74,24 @@ class BoardTestViews(TestCase):
         self.assertTemplateUsed(response, "board/update.html")
         self.assertEqual(str(response.context["user"]), "testuser")
 
-    # def test_board_put_POST(self):
-    #     self.client.login(username="testuser", password="1234")
-    #     response = self.client.post(
-    #         self.post_url, {"title": "updated title", "content": "updated content ", "author": self.user}
-    #     )
-    #     self.assertRedirects(response, "/")
+    def test_board_put_POST(self):
+        self.client.login(username="testuser", password="1234")
+        response = self.client.post(
+            self.put_url, {"title": "updated title", "content": "updated content ", "author": self.user}
+        )
+        post = Board.objects.get(idx=1)
+        self.assertEquals(post.title, 'updated title')
+        self.assertRedirects(response, "/")
+    
+    def test_board_put_POST_no_data(self):
+        self.client.login(username="testuser", password="1234")
+        response = self.client.post(
+            self.put_url, {"title": "", "content": "", "author": self.user}
+        )
+        self.assertEquals(response.status_code, 302)
+        self.assertRedirects(response, "/")
+
+    def test_board_delete_GET(self):
+        self.client.login(username="testuser", password="1234")
+        response = self.client.get(self.delete_url)
+        self.assertEquals(response.status_code, 302)

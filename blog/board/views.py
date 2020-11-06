@@ -83,11 +83,16 @@ def board_put(request, pk):
         return redirect("/{}".format(post.idx))
 
     if request.method == "POST":
-        post.title = request.POST.get("title")
-        post.content = request.POST.get("content")
-        post.update_date = timezone.now()
-        post.save()
-        return redirect("/")
+        try :
+            post.title = request.POST.get("title")
+            post.content = request.POST.get("content")
+            post.update_date = timezone.now()
+            post.save()
+            return redirect("/")
+        except Exception as e:
+            logger.error(e)
+            return redirect("/")
+            
     else:
 
         return render(request, "board/update.html", {"post": post})
