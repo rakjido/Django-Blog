@@ -12,7 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Board
 
-logger = logging.getLogger('blog')
+logger = logging.getLogger("blog")
 
 
 def board_list(request):
@@ -49,11 +49,15 @@ def board_post(request):
     """
     logger.info("board_post")
     if request.method == "POST":
-        title = request.POST.get("title")
-        content = request.POST.get("content")
-        user = get_object_or_404(User, username=request.POST.get("author"))
-        Board.objects.create(title=title, content=content, author=user)
-        return redirect("/")
+        try:
+            title = request.POST.get("title")
+            content = request.POST.get("content")
+            user = get_object_or_404(User, username=request.POST.get("author"))
+            Board.objects.create(title=title, content=content, author=user)
+            return redirect("/")
+        except Exception as e:
+            logger.error(e)
+            return redirect("/")
     else:
         return render(request, "board/new.html", {})
 

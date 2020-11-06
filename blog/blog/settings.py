@@ -151,12 +151,11 @@ LOGGING = {
     "handlers": {
         "file": {
             "level": "INFO",
-            #"class": "logging.FileHandler",
-            "class" : "logging.handlers.TimedRotatingFileHandler",
+            # "class": "logging.FileHandler",
+            "class": "logging.handlers.TimedRotatingFileHandler",
             "filename": os.path.join(BASE_DIR, "blog/log/django.log"),
-            'when': 'D',                # this specifies the interval (logging.handlers.TimedRotatingFileHandler)
-            'interval': 1,              # defaults to 1, only necessary for other values (logging.handlers.TimedRotatingFileHandler)
-            'backupCount': 100,         # how many backup file to keep, 100 days (logging.handlers.TimedRotatingFileHandler)
+            "when": "D",  # this specifies the interval (logging.handlers.TimedRotatingFileHandler)
+            "backupCount": 100,  # how many backup file to keep, 100 days (logging.handlers.TimedRotatingFileHandler)
             "formatter": "detail",
         },
         "console": {
