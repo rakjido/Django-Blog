@@ -23,14 +23,14 @@
                         <ul class="navbar-nav ml-auto">
                         {% if request.user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url "logout" %}">Logout</a>
+                                <a class="nav-link" id="logout" href="{% url "logout" %}">Logout</a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url "login" %}">Log-in</a>
+                                <a class="nav-link" id="login" href="{% url "login" %}">Log-in</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url "signup" %}">Sign-up</a>
+                                <a class="nav-link" id="signup" href="{% url "signup" %}">Sign-up</a>
                             </li>
                         {% endif %}
                         </ul>
