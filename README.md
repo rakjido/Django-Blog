@@ -131,7 +131,7 @@ CONFIG_EMAIL_PASSWORD = "password"
 python manage.py runserver
 ```
 
-* Linux나 MacOS 환경에서는 uWSGI로 실행이 가능합니다.
+* Linux나 MacOS 환경에서는 uWSGI로 실행할 수 있다.
 
 ```
 uwsgi --ini uwsgi.ini
