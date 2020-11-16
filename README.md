@@ -58,12 +58,12 @@ pip install -r requirement.txt
 ```
 
 
-#### sqlite3 설정
+### sqlite3 설정
 
 
-blog/blog/config/config.py
+**blog/blog/config/config.py**
 
-```
+```python
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -89,11 +89,11 @@ CONFIG_EMAIL_PASSWORD = "password"
 
 
 
-#### MySQL 설정
+### MySQL 설정
 
-blog/blog/config/config.py
+**blog/blog/config/config.py**
 
-```
+```python
 import pymysql
 
 pymysql.version_info = (1, 4, 2, "final", 0)
