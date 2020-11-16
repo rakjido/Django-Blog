@@ -122,3 +122,17 @@ HOST_SET = ["*"]
 CONFIG_EMAIL_USER = "youremail@mail.com"
 CONFIG_EMAIL_PASSWORD = "password"
 ```
+
+---
+
+## 실행
+
+```
+python manage.py runserver
+```
+
+* Linux나 MacOS 환경에서는 uWSGI로 실행이 가능합니다.
+
+```
+uwsgi --ini uwsgi.ini
+```
