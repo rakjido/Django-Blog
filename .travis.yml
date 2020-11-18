@@ -1,11 +1,13 @@
 language: python
 python:
   - "3.6"      # current default Python on Travis CI
-# command to install dependencies
-befor_install: cd blog
 
+before_install: cd blog
+
+# command to install dependencies
 install:
   - pip install -r requirement_dev.txt
-# command to run tests
+
+  # command to run tests
 script:
   - pytest --cov=.
