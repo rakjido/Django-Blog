@@ -35,7 +35,7 @@
     * Git & Github, Git Flow
     * uWSGI
     * Docker
-    * Jenkins CI/CD
+    * Travis CI
 ```
 
 
