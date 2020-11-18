@@ -15,3 +15,5 @@ def get_hash(id):
     idmix = str(id + 3421)
     blake = hashlib.blake2s(idmix.encode("utf-8"), digest_size=6)
     return blake.hexdigest()
+
+print("hello")
