@@ -1,4 +1,4 @@
-# Django-Blog
+# Django-Blog [![Build Status](https://travis-ci.org/rakjido/Django-Blog.svg?branch=main)](https://travis-ci.org/rakjido/Django-Blog)
 
 
 
